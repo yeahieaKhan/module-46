@@ -6,15 +6,20 @@ const CollectedForm = () => {
 
   const formHander = (e) => {
     e.preventDefault();
-  };
-  const eventTrager = (e) => {
-    console.log(e.target.value);
-    setPassword(e.target.value);
     if (password.length < 6) {
       setError("passeord must be 6 digit");
     } else {
       setError("");
     }
+  };
+  const eventTrager = (e) => {
+    if (password.length < 6) {
+      setError("passeord must be 6 digit");
+    } else {
+      setError("");
+    }
+    console.log(e.target.value);
+    setPassword(e.target.value);
   };
 
   return (
@@ -36,7 +41,6 @@ const CollectedForm = () => {
           name="password"
           placeholder="Enter your email"
           required
-          defaultValue={password}
           onChange={eventTrager}
         />
         <br />
